@@ -1,0 +1,68 @@
+import random
+
+player_one_score = 0
+player_two_score = 0
+rounds_counter = 0
+
+print("===========================")
+print("Python Game of War")
+print("===========================")
+
+user_input = input("Type PLAY and press ENTER: ")
+
+if(user_input == "PLAY"):
+  
+  while(rounds_counter != 21):
+    
+    player_one_card = random.randint(0,9)
+    player_two_card = random.randint(0,9)
+
+    if (player_one_card > player_two_card):
+      print("\nYour card: ", player_one_card, "Opponent's card:", player_two_card)
+      print("You won this round!")
+      input("Press ENTER to continue")
+      player_one_score += 2
+      rounds_counter += 1
+
+    elif(player_one_card == player_two_card):
+      print("\nWAR!")
+
+      print("\nYour card: ", player_one_card, "Opponent's card:", player_two_card)
+      
+      player_one_extra_card_1 = random.randint(0,9)
+      player_two_extra_card_1 = random.randint(0,9)
+
+      print("\nYour second card: ", player_one_extra_card_1, "Opponent's second card:", player_two_extra_card_1)
+
+      player_one_extra_card_2 = random.randint(0,9)
+      player_two_extra_card_2 = random.randint(0,9)
+
+      print("\nYour third card: ", player_one_extra_card_1, "Opponent's third card:", player_two_extra_card_1)
+
+      if(player_one_extra_card_2 > player_two_extra_card_2):
+          print("You won this round!")
+          player_one_score += 2
+          rounds_counter += 1
+      else:
+          print("Your opponent won this round!")
+          player_two_score += 2
+          rounds_counter += 1
+      
+      
+    else:
+      print("\nYour card: ", player_one_card, "Opponent's card:", player_two_card)
+      print("Your opponent won this round!")
+      input("Press ENTER to continue")
+      player_two_score += 2
+      rounds_counter += 1
+
+
+  else:
+    if(player_one_score > player_two_score):
+      print("You won the game!")
+    else: 
+      print("You lost the game!")
+
+else:
+  print("End")
+  
